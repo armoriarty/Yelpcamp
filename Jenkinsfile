@@ -17,7 +17,7 @@ pipeline {
 
         stage('Install') {
           steps {
-            sh 'npm install --omit=optional'
+            sh 'npm install'
           }
         }
 
