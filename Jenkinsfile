@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('Log Contents') {
-      steps {
-        sh ' ls -al'
+      parallel {
+        stage('Log Contents') {
+          steps {
+            sh ' ls -al'
+          }
+        }
+
+        stage('Install') {
+          steps {
+            sh 'npm install --omit=optional'
+          }
+        }
+
       }
     }
 
